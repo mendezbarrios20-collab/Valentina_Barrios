@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentina Barrios Méndez - Portafolio Interactive</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+    <!-- Header con Navegación y Menú Hamburguesa -->
+    <header>
+        <div class="header-container">
+            <a href="#inicio" class="logo">Valentina.Dev</a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav id="navMenu">
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#acerca">Acerca de mí</a></li>
+                    <li><a href="#habilidades">Habilidades</a></li>
+                    <li><a href="#proyectos">Proyectos</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Sección 1: Hero / Inicio -->
+        <section id="inicio" class="hero-section">
+            <div class="hero-content">
+                <h1>¡Hola! Soy <span id="hero-name">Valentina Barrios Méndez</span></h1>
+                <p>Desarrolladora Web Frontend apasionada por crear experiencias digitales increíbles.</p>
+                <a href="#contacto" class="btn-primary">Contáctame</a>
+            </div>
+        </section>
+
+        <!-- Sección 2: Acerca de mí (Con tu Foto Circular) -->
+        <section id="acerca" class="about-section">
+            <h2>Acerca de Mí</h2>
+            <div class="about-container">
+                <div class="about-img-container">
+                    <img src="assets/img/valentina.jpeg" alt="Foto de Valentina Barrios" class="avatar-image">
+                </div>
+                <div class="about-text">
+                    <p>Soy una desarrolladora web frontend con pasión por crear interfaces de usuario atractivas y funcionales. Me especializo en HTML, CSS y JavaScript, y siempre estoy buscando aprender nuevas tecnologías y mejorar mi perfil técnico.</p>
+                    <p>Mi objetivo es crear sitios web que no solo se vean bien, sino que también brinden una excelente experiencia de usuario. Creo firmemente en el poder del código limpio, el diseño responsivo y la accesibilidad web desde mi hermosa ciudad, Cartagena.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección 3: Habilidades (Cargadas dinámicamente por JS) -->
+        <section id="habilidades" class="skills-section">
+            <h2>Mis Habilidades</h2>
+            <div class="skills-container" id="skillsContainer"></div>
+        </section>
+
+        <!-- Sección 4: Proyectos Interactivos (Filtrados por JS) -->
+        <section id="proyectos" class="projects-section">
+            <h2>Mis Proyectos</h2>
+            
+            <div class="filter-container">
+                <button class="btn-filter active" data-category="todos">Todos</button>
+                <button class="btn-filter" data-category="web">Sitios Web</button>
+                <button class="btn-filter" data-category="app">Aplicaciones</button>
+            </div>
+
+            <div class="projects-grid" id="projectsGrid"></div>
+        </section>
+
+        <!-- Sección 5: Contacto con Formulario Validador -->
+        <section id="contacto" class="contact-section">
+            <h2>Contáctame</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <p><strong>Email:</strong> mendezbarrios20@gmail.com</p>
+                    </div>
+                    <div class="info-item">
+                        <p><strong>Teléfono:</strong> +57 320 639 7035</p>
+                    </div>
+                    <div class="info-item">
+                        <p><strong>Ubicación:</strong> Cartagena, Colombia</p>
+                    </div>
+                </div>
+
+                <div class="contact-form-container">
+                    <form id="contactForm" novalidate>
+                        <div class="form-group">
+                            <label for="nombre">Nombre</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                            <span class="error-message" id="errorNombre"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                            <span class="error-message" id="errorEmail"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje</label>
+                            <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+                            <span class="error-message" id="errorMensaje"></span>
+                        </div>
+                        <button type="submit" class="btn-submit">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-links">
+            <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+            <a href="https://github.com" target="_blank">GitHub</a>
+            <a href="https://twitter.com" target="_blank">Twitter</a>
+        </div>
+        <p>&copy; 2026 Valentina Barrios. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Vinculación del JavaScript al Final -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,547 @@
+
+/* ==========================================================================
+   VARIABLES DE DISEÑO - PALETA PASTEL (Rosa, Morado y Amarillo)
+   ========================================================================== */
+:root {
+    --primary-gradient: linear-gradient(135deg, #fbc5d8 0%, #c3bef7 100%);
+    --accent-gradient: linear-gradient(135deg, #ff9ebb 0%, #fbe698 100%);
+    --bg-light: #faf8ff;
+    --text-dark: #2d283e;
+    --text-muted: #6b5e86;
+    --white: #ffffff;
+    --error-color: #ff8b94;
+    --success-color: #b3f5bc;
+    --card-shadow: 0 10px 30px rgba(195, 191, 247, 0.25);
+    --transition-fast: 0.3s ease;
+}
+
+/* ==========================================================================
+   RESET BASE Y CONFIGURACIÓN GLOBAL
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--white);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   HEADER Y NAVEGACIÓN (LAYOUT CON FLEXBOX)
+   ========================================================================== */
+header {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 15px rgba(195, 191, 247, 0.15);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.logo {
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: #8c7ae6;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: var(--transition-fast);
+}
+
+nav a:hover {
+    color: #ff9ebb;
+}
+
+/* ==========================================================================
+   MENÚ HAMBURGUESA RESPONSIVO E INTERACTIVO
+   ========================================================================== */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+    padding: 5px;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-dark);
+    transition: var(--transition-fast);
+    transform-origin: 1px;
+}
+
+/* ANIMACIÓN: TRANSFORMACIÓN DE HAMBURGUESA A X */
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(2px, 2px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-10px);
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-44deg) translate(1px, -1px);
+}
+
+/* ==========================================================================
+   SECCIONES GENERALES
+   ========================================================================== */
+section {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 3rem;
+    position: relative;
+    color: var(--text-dark);
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 5px;
+    background: var(--accent-gradient);
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+}
+
+/* ==========================================================================
+   SECCIÓN 1: HERO / INICIO
+   ========================================================================== */
+.hero-section {
+    max-width: 100%;
+    background: var(--primary-gradient);
+    color: var(--text-dark);
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 8rem;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 2px 10px rgba(255, 255, 255, 0.5);
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    color: var(--text-muted);
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 0.8rem 2.5rem;
+    background: var(--accent-gradient);
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 50px;
+    transition: var(--transition-fast);
+    box-shadow: 0 4px 15px rgba(255, 158, 187, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 158, 187, 0.6);
+}
+
+/* ==========================================================================
+   SECCIÓN 2: ACERCA DE MÍ
+   ========================================================================== */
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.about-img-container {
+    flex-shrink: 0;
+}
+
+.avatar-image {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #c3bef7;
+    box-shadow: 0 10px 25px rgba(195, 191, 247, 0.4);
+}
+
+.about-text p {
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+}
+
+/* ==========================================================================
+   SECCIÓN 3: BARRAS DE HABILIDADES (GRID)
+   ========================================================================== */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+}
+
+.skill-card {
+    background: var(--bg-light);
+    padding: 1.5rem;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(195, 191, 247, 0.1);
+    border: 1px solid rgba(195, 191, 247, 0.2);
+}
+
+.skill-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.progress-bar-bg {
+    background: #eef0fc;
+    width: 100%;
+    height: 12px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #c3bef7 0%, #ff9ebb 100%);
+    width: 0%;
+    transition: width 1.5s cubic-bezier(0.1, 1, 0.1, 1);
+    border-radius: 10px;
+}
+
+/* ==========================================================================
+   SECCIÓN 4: PROYECTOS INTERACTIVOS (GRID)
+   ========================================================================== */
+.filter-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.btn-filter {
+    padding: 0.5rem 1.5rem;
+    border: 2px solid #c3bef7;
+    background: transparent;
+    color: #6b5e86;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.btn-filter.active,
+.btn-filter:hover {
+    background: #c3bef7;
+    color: var(--text-dark);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    transition: var(--transition-fast);
+    border: 1px solid rgba(195, 191, 247, 0.2);
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(195, 191, 247, 0.4);
+}
+
+.project-visual {
+    height: 180px;
+    background: linear-gradient(135deg, #c3bef7 0%, #fbe698 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-dark);
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 1rem;
+    text-align: center;
+}
+
+.project-info {
+    padding: 1.5rem;
+}
+
+.project-info h3 {
+    margin-bottom: 0.5rem;
+}
+
+.project-info p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+}
+
+.project-link {
+    color: #8c7ae6;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.project-link:hover {
+    color: #ff9ebb;
+}
+
+/* ==========================================================================
+   SECCIÓN 5: CONTACTO Y FORMULARIO (GRID)
+   ========================================================================== */
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.info-item {
+    background: var(--bg-light);
+    padding: 1.5rem;
+    border-radius: 16px;
+    border: 1px solid rgba(195, 191, 247, 0.2);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 12px;
+    outline: none;
+    background-color: #fffdfb;
+    transition: var(--transition-fast);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #c3bef7;
+    box-shadow: 0 0 0 4px rgba(195, 191, 247, 0.3);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.error-message {
+    color: #e55039;
+    font-size: 0.85rem;
+    display: block;
+    margin-top: 0.25rem;
+    min-height: 1.2rem;
+}
+
+.btn-submit {
+    background: #c3bef7;
+    color: var(--text-dark);
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.btn-submit:hover {
+    background: #ff9ebb;
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+footer {
+    background: #2d283e;
+    color: #fbc5d8;
+    text-align: center;
+    padding: 3rem 2rem;
+    margin-top: 5rem;
+}
+
+.footer-links {
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: #c3bef7;
+    text-decoration: none;
+    transition: var(--transition-fast);
+}
+
+.footer-links a:hover {
+    color: var(--white);
+}
+
+/* ==========================================================================
+   DISEÑO RESPONSIVO (MEDIA QUERIES)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .header-container {
+        padding: 1rem;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+        padding: 1.5rem;
+        transition: var(--transition-fast);
+    }
+
+    nav.active {
+        display: block;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-container {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 4rem 1.25rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .btn-primary {
+        padding: 0.7rem 1.5rem;
+    }
+
+    .avatar-image {
+        width: 200px;
+        height: 200px;
+    }
+
+    .filter-container {
+        gap: 0.5rem;
+    }
+
+    .btn-filter {
+        padding: 0.45rem 1rem;
+        font-size: 0.9rem;
+    }
+}
